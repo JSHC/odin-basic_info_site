@@ -28,7 +28,9 @@ const getHtmlFile = async (urlPath) => {
     const fileAccess = await fileExists(fsPath);
     if (fileAccess) {
         try {
-            const data = await fsProm.readFile(fsPath, { encoding: "utf8" });
+            const data = await fs.promises.readFile(fsPath, {
+                encoding: "utf8",
+            });
             return data;
         } catch (err) {
             console.error(err);
